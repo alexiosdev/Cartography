@@ -27,6 +27,7 @@ private func makeEqual<P: RelativeEquality>(_ attribute: (LayoutProxy) -> P, fir
 ///
 /// - returns: An array of `NSLayoutConstraint` instances.
 ///
+@discardableResult
 public func align(top first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayoutConstraint] {
     return makeEqual({ $0.top }, first: first, rest: rest)
 }
@@ -38,6 +39,7 @@ public func align(top first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayoutCo
 ///
 /// - returns: An array of `NSLayoutConstraint` instances.
 ///
+@discardableResult
 public func align(right first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayoutConstraint] {
     return makeEqual({ $0.right }, first: first, rest: rest)
 }
@@ -49,6 +51,7 @@ public func align(right first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayout
 ///
 /// - returns: An array of `NSLayoutConstraint` instances.
 ///
+@discardableResult
 public func align(bottom first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayoutConstraint] {
     return makeEqual({ $0.bottom }, first: first, rest: rest)
 }
@@ -60,6 +63,7 @@ public func align(bottom first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayou
 ///
 /// - returns: An array of `NSLayoutConstraint` instances.
 ///
+@discardableResult
 public func align(left first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayoutConstraint] {
     return makeEqual({ $0.left }, first: first, rest: rest)
 }
@@ -71,6 +75,7 @@ public func align(left first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayoutC
 ///
 /// - returns: An array of `NSLayoutConstraint` instances.
 ///
+@discardableResult
 public func align(leading first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayoutConstraint] {
     return makeEqual({ $0.leading }, first: first, rest: rest)
 }
@@ -82,6 +87,7 @@ public func align(leading first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayo
 ///
 /// - returns: An array of `NSLayoutConstraint` instances.
 ///
+@discardableResult
 public func align(trailing first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayoutConstraint] {
     return makeEqual({ $0.trailing }, first: first, rest: rest)
 }
@@ -93,6 +99,7 @@ public func align(trailing first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLay
 ///
 /// - returns: An array of `NSLayoutConstraint` instances.
 ///
+@discardableResult
 public func align(centerX first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayoutConstraint] {
     return makeEqual({ $0.centerX }, first: first, rest: rest)
 }
@@ -104,6 +111,7 @@ public func align(centerX first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayo
 ///
 /// - returns: An array of `NSLayoutConstraint` instances.
 ///
+@discardableResult
 public func align(centerY first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayoutConstraint] {
     return makeEqual({ $0.centerY }, first: first, rest: rest)
 }
@@ -115,6 +123,7 @@ public func align(centerY first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayo
 ///
 /// - returns: An array of `NSLayoutConstraint` instances.
 ///
+@discardableResult
 public func align(baseline first: LayoutProxy, _ rest: LayoutProxy...) -> [NSLayoutConstraint] {
     return makeEqual({ $0.baseline }, first: first, rest: rest)
 }

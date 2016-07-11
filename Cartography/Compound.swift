@@ -29,6 +29,7 @@ public protocol RelativeCompoundEquality : Compound { }
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
+@discardableResult
 public func == <P: RelativeCompoundEquality>(lhs: P, rhs: Expression<P>) -> [NSLayoutConstraint] {
     return lhs.context.addConstraint(lhs, coefficients: rhs.coefficients, to: rhs.value)
 }
@@ -39,6 +40,7 @@ public func == <P: RelativeCompoundEquality>(lhs: P, rhs: Expression<P>) -> [NSL
 ///             `translatesAutoresizingMaskIntoConstraints` set to `false`.
 /// - parameter rhs: The other property.
 ///
+@discardableResult
 public func == <P: RelativeCompoundEquality>(lhs: P, rhs: P) -> [NSLayoutConstraint] {
     return lhs.context.addConstraint(lhs, to: rhs)
 }
@@ -55,6 +57,7 @@ public protocol RelativeCompoundInequality : Compound { }
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
+@discardableResult
 public func <= <P: RelativeCompoundInequality>(lhs: P, rhs: P) -> [NSLayoutConstraint] {
     return lhs.context.addConstraint(lhs, to: rhs, relation: NSLayoutRelation.lessThanOrEqual)
 }
@@ -67,6 +70,7 @@ public func <= <P: RelativeCompoundInequality>(lhs: P, rhs: P) -> [NSLayoutConst
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
+@discardableResult
 public func >= <P: RelativeCompoundInequality>(lhs: P, rhs: P) -> [NSLayoutConstraint] {
     return lhs.context.addConstraint(lhs, to: rhs, relation: NSLayoutRelation.greaterThanOrEqual)
 }
@@ -79,6 +83,7 @@ public func >= <P: RelativeCompoundInequality>(lhs: P, rhs: P) -> [NSLayoutConst
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
+@discardableResult
 public func <= <P: RelativeCompoundInequality>(lhs: P, rhs: Expression<P>) -> [NSLayoutConstraint] {
     return lhs.context.addConstraint(lhs, coefficients: rhs.coefficients, to: rhs.value, relation: NSLayoutRelation.lessThanOrEqual)
 }
@@ -91,6 +96,7 @@ public func <= <P: RelativeCompoundInequality>(lhs: P, rhs: Expression<P>) -> [N
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
+@discardableResult
 public func >= <P: RelativeCompoundInequality>(lhs: P, rhs: Expression<P>) -> [NSLayoutConstraint] {
     return lhs.context.addConstraint(lhs, coefficients: rhs.coefficients, to: rhs.value, relation: NSLayoutRelation.greaterThanOrEqual)
 }

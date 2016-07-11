@@ -15,6 +15,7 @@ import Foundation
 ///                      replaced.
 /// - parameter block:   A block that declares the layout for `view`.
 ///
+@discardableResult
 public func constrain(_ view: View, replace group: ConstraintGroup = ConstraintGroup(), block: @noescape (LayoutProxy) -> ()) -> ConstraintGroup {
     let context = Context()
     block(LayoutProxy(context, view))
@@ -31,6 +32,7 @@ public func constrain(_ view: View, replace group: ConstraintGroup = ConstraintG
 ///                      replaced.
 /// - parameter block:   A block that declares the layout for the views.
 ///
+@discardableResult
 public func constrain(_ view1: View, _ view2: View, replace group: ConstraintGroup = ConstraintGroup(), @noescape block: @noescape (LayoutProxy, LayoutProxy) -> ()) -> ConstraintGroup {
     let context = Context()
     block(LayoutProxy(context, view1), LayoutProxy(context, view2))
@@ -48,6 +50,7 @@ public func constrain(_ view1: View, _ view2: View, replace group: ConstraintGro
 ///                      replaced.
 /// - parameter block:   A block that declares the layout for the views.
 ///
+@discardableResult
 public func constrain(_ view1: View, _ view2: View, _ view3: View, replace group: ConstraintGroup = ConstraintGroup(), block: @noescape (LayoutProxy, LayoutProxy, LayoutProxy) -> ()) -> ConstraintGroup {
     let context = Context()
     block(LayoutProxy(context, view1), LayoutProxy(context, view2), LayoutProxy(context, view3))
@@ -66,6 +69,7 @@ public func constrain(_ view1: View, _ view2: View, _ view3: View, replace group
 ///                      replaced.
 /// - parameter block:   A block that declares the layout for the views.
 ///
+@discardableResult
 public func constrain(_ view1: View, _ view2: View, _ view3: View, _ view4: View, replace group: ConstraintGroup = ConstraintGroup(), block: @noescape (LayoutProxy, LayoutProxy, LayoutProxy, LayoutProxy) -> ()) -> ConstraintGroup {
     let context = Context()
     block(LayoutProxy(context, view1), LayoutProxy(context, view2), LayoutProxy(context, view3), LayoutProxy(context, view4))
@@ -85,6 +89,7 @@ public func constrain(_ view1: View, _ view2: View, _ view3: View, _ view4: View
 ///                      replaced.
 /// - parameter block:   A block that declares the layout for the views.
 ///
+@discardableResult
 public func constrain(_ view1: View, _ view2: View, _ view3: View, _ view4: View, _ view5: View, replace group: ConstraintGroup = ConstraintGroup(), block : @noescape(LayoutProxy, LayoutProxy, LayoutProxy, LayoutProxy, LayoutProxy) -> ()) -> ConstraintGroup {
     let context = Context()
     block(LayoutProxy(context, view1), LayoutProxy(context, view2), LayoutProxy(context, view3), LayoutProxy(context, view4), LayoutProxy(context, view5))
@@ -100,6 +105,7 @@ public func constrain(_ view1: View, _ view2: View, _ view3: View, _ view4: View
 ///                      replaced.
 /// - parameter block:   A block that declares the layout for `views`.
 ///
+@discardableResult
 public func constrain(_ views: [View], replace group: ConstraintGroup = ConstraintGroup(), block : @noescape ([LayoutProxy]) -> ()) -> ConstraintGroup {
     let context = Context()
     block(views.map({ LayoutProxy(context, $0) }))
@@ -115,6 +121,7 @@ public func constrain(_ views: [View], replace group: ConstraintGroup = Constrai
 ///                      replaced.
 /// - parameter block:   A block that declares the layout for `views`.
 ///
+@discardableResult
 public func constrain<T: Hashable>(_ views: [T: View], replace group: ConstraintGroup = ConstraintGroup(), block: (@noescape ([T : LayoutProxy]) -> ())) -> ConstraintGroup {
     let context = Context()
     let proxies = views.map { (key: $0, value: LayoutProxy(context, $1)) }
