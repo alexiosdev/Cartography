@@ -31,7 +31,7 @@ public protocol RelativeCompoundEquality : Compound { }
 ///
 @discardableResult
 public func == <P: RelativeCompoundEquality>(lhs: P, rhs: Expression<P>) -> [NSLayoutConstraint] {
-    return lhs.context.addConstraint(lhs, coefficients: rhs.coefficients, to: rhs.value)
+    return lhs.context.addConstraint(lhs, to: rhs.value, coefficients: rhs.coefficients)
 }
 
 /// Declares a property equal to another compound property.
@@ -85,7 +85,7 @@ public func >= <P: RelativeCompoundInequality>(lhs: P, rhs: P) -> [NSLayoutConst
 ///
 @discardableResult
 public func <= <P: RelativeCompoundInequality>(lhs: P, rhs: Expression<P>) -> [NSLayoutConstraint] {
-    return lhs.context.addConstraint(lhs, coefficients: rhs.coefficients, to: rhs.value, relation: NSLayoutRelation.lessThanOrEqual)
+    return lhs.context.addConstraint(lhs, to: rhs.value, coefficients: rhs.coefficients, relation: NSLayoutRelation.lessThanOrEqual)
 }
 
 /// Declares a property greater than or equal to the result of an expression.
@@ -98,5 +98,5 @@ public func <= <P: RelativeCompoundInequality>(lhs: P, rhs: Expression<P>) -> [N
 ///
 @discardableResult
 public func >= <P: RelativeCompoundInequality>(lhs: P, rhs: Expression<P>) -> [NSLayoutConstraint] {
-    return lhs.context.addConstraint(lhs, coefficients: rhs.coefficients, to: rhs.value, relation: NSLayoutRelation.greaterThanOrEqual)
+    return lhs.context.addConstraint(lhs, to: rhs.value, coefficients: rhs.coefficients, relation: NSLayoutRelation.greaterThanOrEqual)
 }
